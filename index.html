@@ -18,31 +18,23 @@
         var gear = Snap.select("#gear");
         var poly = gear.select("#poly");
         var timer;
-    
-        function close() {
-            clearTimeout(timer);
 
-
-            timer = setTimeout(function () {
-            }, 400);
+        function revert() {
+            poly.animate({
+                    transform: "r" + 0 + ","+String(gear.getBBox().width/2)+","+String(gear.getBBox().height/2)
+                }, 1000);
         }
 
         function open() {
             clearTimeout(timer);
 
             poly.animate({
-                            transform: "r" + 450 + ","+String(gear.getBBox().width/2)+","+String(gear.getBBox().height/2)
-                        }, 1000, mina.bounce);
-
+                            transform: "r" + 180 + ","+String(gear.getBBox().width/2)+","+String(gear.getBBox().height/2)
+                        }, 1000, function () { setTimeout(revert, 1000); });
+            
         }
 
-        timer = setTimeout(close, 50);
-
-        gear.click(open, 
-            function () {
-                timer = setTimeout(close, 200);
-            }
-        );
+        gear.click(open);
     }
     </script>
 </html>
