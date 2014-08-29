@@ -1,5 +1,7 @@
 <html>
+
     <script src="snap.svg-min.js"></script>
+
     
     <svg version="1.1" id="gear" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="124.182px" height="124.346px" viewBox="0 0 124.182 124.346" enable-background="new 0 0 124.182 124.346"
@@ -11,13 +13,36 @@
         17.172,50.837 22.672,37.671 13.505,23.504 "/>
     <circle fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" cx="62.422" cy="61.753" r="16.917"/>
     </svg>
-<script>
+    <script>
     window.onload = function () {
         var gear = Snap.select("#gear");
         var poly = gear.select("#poly");
-        poly.animate({
+        var timer;
+    
+        function close() {
+            clearTimeout(timer);
+
+
+            timer = setTimeout(function () {
+            }, 400);
+        }
+
+        function open() {
+            clearTimeout(timer);
+
+            poly.animate({
                             transform: "r" + 450 + ","+String(gear.getBBox().width/2)+","+String(gear.getBBox().height/2)
                         }, 1000, mina.bounce);
+
+        }
+
+        timer = setTimeout(close, 50);
+
+        gear.click(open, 
+            function () {
+                timer = setTimeout(close, 200);
+            }
+        );
     }
-</script>
+    </script>
 </html>
