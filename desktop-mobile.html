@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Desktop - Mobile</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="snap.svg-min.js"></script>
+        <script>
+             window.onload = function () {
+                var gear = Snap.select("#gear");
+                var triangle = gear.select("#triangle");
+                var monitor = gear.select("#monitor");
+
+                function revert() {
+                    monitor.animate({
+                        d: "M5 5 145 5 145 105 5 105 z"
+                    }, 1000, mina.elastic);
+                    triangle.animate({
+                        points: "50,150 100,150 75,90"
+                    }, 1000, mina.elastic);
+                }
+
+                function open() {
+                    monitor.animate({
+                        d: "M25 5 120 5 120 135 25 135 z M62.5 110a10 10 0 1 1 0 0.0001 z"
+                    }, 1000, mina.elastic, function () { setTimeout(revert, 1000); });
+                    triangle.animate({
+                        points: "50,50 100,50 75,90"
+                    }, 1000, mina.elastic);
+                    
+                }
+
+                gear.click(open);
+            }
+        </script>
+    </head>
+    <body>
+
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="150px" height="150px" viewBox="0 0 150 150" enable-background="new 0 0 150 150"
+     xml:space="preserve" style="width: 64px;">
+        <g id="gear">
+<!--             <rect id="monitor" x="0" y="0" rx="5" ry="5" width="150" height="110" mask="url(#cut-off-bottom)" />
+ -->            <polygon id="triangle" points="50,150 100,150 75,90" />
+
+            <path id="monitor" d="M5 5 145 5 145 105 5 105 z"
+                  fill-rule="evenodd"/>
+        </g>
+        </svg>
+
+
+    </body>
+</html>
