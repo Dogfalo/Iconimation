@@ -7,9 +7,9 @@
         <script src="snap.svg-min.js"></script>
         <script>
              window.onload = function () {
-                var gear = Snap.select("#gear");
-                var triangle = gear.select("#triangle");
-                var monitor = gear.select("#monitor");
+                var icon = Snap.select("#icon");
+                var triangle = icon.select("#triangle");
+                var monitor = icon.select("#monitor");
 
                 function revert() {
                     monitor.animate({
@@ -30,7 +30,7 @@
                     
                 }
 
-                gear.click(open);
+                icon.click(open);
             }
         </script>
     </head>
@@ -39,9 +39,8 @@
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      width="150px" height="150px" viewBox="0 0 150 150" enable-background="new 0 0 150 150"
      xml:space="preserve" style="width: 64px;">
-        <g id="gear">
-<!--             <rect id="monitor" x="0" y="0" rx="5" ry="5" width="150" height="110" mask="url(#cut-off-bottom)" />
- -->            <polygon id="triangle" points="50,150 100,150 75,90" />
+        <g id="icon">
+            <polygon id="triangle" points="50,150 100,150 75,90" />
 
             <path id="monitor" d="M5 5 145 5 145 105 5 105 z"
                   fill-rule="evenodd"/>
