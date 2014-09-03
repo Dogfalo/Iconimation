@@ -7,6 +7,7 @@
         <script src="snap.svg-min.js"></script>
         <script>
              window.onload = function () {
+                var whole = Snap.select("#whole-icon")
                 var icon = Snap.select("#icon");
                 var base = icon.select("#base");
                 var monitor = icon.select("#monitor");
@@ -21,6 +22,7 @@
                 }
 
                 function open() {
+                    clearTimeout(revert);
                     monitor.animate({
                         d: "M25 5 120 5 120 135 25 135 z M62.5 110a10 10 0 1 1 0 0.0001 z M35 15 110 15 110 90 35 90 z"
                     }, 1000, mina.bounce, function () { setTimeout(revert, 1000); });
@@ -30,13 +32,13 @@
                     
                 }
 
-                icon.click(open);
+                whole.click(open);
             }
         </script>
     </head>
     <body>
 
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg id ="whole-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      width="150px" height="150px" viewBox="0 0 150 150" enable-background="new 0 0 150 150"
      xml:space="preserve" style="width: 64px; height: 64px;">
         <g id="icon">
