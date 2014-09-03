@@ -8,25 +8,25 @@
         <script>
              window.onload = function () {
                 var icon = Snap.select("#icon");
-                var triangle = icon.select("#triangle");
+                var base = icon.select("#base");
                 var monitor = icon.select("#monitor");
 
                 function revert() {
                     monitor.animate({
-                        d: "M5 5 145 5 145 105 5 105 z"
-                    }, 1000, mina.elastic);
-                    triangle.animate({
-                        points: "50,150 100,150 75,90"
-                    }, 1000, mina.elastic);
+                        d: "M5 5 145 5 145 105 5 105 z M15 15 135 15 135 75 15 75 z"
+                    }, 1000, mina.bounce);
+                    base.animate({
+                        points: "50,140 100,140 90,100 60,100"
+                    }, 1000, mina.bounce);
                 }
 
                 function open() {
                     monitor.animate({
-                        d: "M25 5 120 5 120 135 25 135 z M62.5 100a10 10 0 1 1 0 0.0001 z"
-                    }, 1000, mina.elastic, function () { setTimeout(revert, 1000); });
-                    triangle.animate({
-                        points: "50,50 100,50 75,90"
-                    }, 1000, mina.elastic);
+                        d: "M25 5 120 5 120 135 25 135 z M62.5 110a10 10 0 1 1 0 0.0001 z M35 15 110 15 110 90 35 90 z"
+                    }, 1000, mina.bounce, function () { setTimeout(revert, 1000); });
+                    base.animate({
+                        points: "50,130 100,130 90,130 60,130"
+                    }, 1000, mina.bounce);
                     
                 }
 
@@ -40,9 +40,9 @@
      width="150px" height="150px" viewBox="0 0 150 150" enable-background="new 0 0 150 150"
      xml:space="preserve" style="width: 64px; height: 64px;">
         <g id="icon">
-            <polygon id="triangle" points="50,150 100,150 75,90" />
+            <polygon id="base" points="50,140 100,140 90,100 60,100" />
 
-            <path id="monitor" d="M5 5 145 5 145 105 5 105 z"
+            <path id="monitor" d="M5 5 145 5 145 105 5 105 z M15 15 135 15 135 75 15 75 z"
                   fill-rule="evenodd"/>
         </g>
         </svg>
