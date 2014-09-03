@@ -95,7 +95,9 @@
             var timer;
 
             function revert() {
-                
+                can.animate({
+                    transform: "r" + 0
+                    }, 200, mina.easein);
             }
 
             function open() {
@@ -103,7 +105,7 @@
 
                 can.animate({
                                 transform: "r" + 20 + ","+String(can.getBBox().width/2)+","+String(can.getBBox().height),
-                points: "60.965,22.154 2.162,22.154 2.162,2.428 60.965,2.428"}, 350, mina.easeinout);
+                points: "60.965,22.154 2.162,22.154 2.162,2.428 60.965,2.428"}, 350, mina.easeinout, function () { setTimeout(revert, 1000); });
                 
         
             }
