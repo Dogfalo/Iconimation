@@ -25,6 +25,7 @@
                 }
 
                 function open() {
+                    clearTimeout(revert);
                     left_line.animate({
                         points: "6,4 4,6 14,16 16,14"
                     }, 800, mina.elastic, function() { setTimeout(revert, 800); });
