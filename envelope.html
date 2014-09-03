@@ -24,10 +24,10 @@
                     clearTimeout(revert);
                     triangle.animate({
                         points: "0,50 150,50 75,0"
-                    }, 500, mina.easeout, function() { setTimeout(revert, 1000); });
+                    }, 500, mina.easein, function() { setTimeout(revert, 1000); });
                     message.animate({
                         y: "20"
-                    }, 800, mina.easeout);
+                    }, 800, mina.easein);
                     
                 }
 
